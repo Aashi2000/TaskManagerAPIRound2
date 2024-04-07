@@ -6,9 +6,15 @@ Task management allows users to register, create tasks and manage them, major fe
 
 - User SignUp & SignIn
 - Create Tasks which are visible only to the logged in users
-- New created tasks will be in OPEN status
+- New created tasks willU be in OPEN status
 - Update task status to IN_PROGRESS or DONE
 - Delete tasks
+- create Teams
+- Add Team Members to Team
+- Track Tasks Status of Team Members
+- Assign Task to Team Members
+- Delete Task,Teams and Team Members through TaskId , TeamId,MemberID and Username
+  
 
 
 ## Installation
