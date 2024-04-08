@@ -38,6 +38,7 @@ describe('TasksService', () => {
       const filters: GetTasksFilterDto = {
         status: TaskStatus.IN_PROGRESS,
         search: 'Some search query',
+        due_date : new Date
       };
       const result = await tasksService.getTasks(filters, mockUser);
       expect(taskRepository.getTasks).toHaveBeenCalled();

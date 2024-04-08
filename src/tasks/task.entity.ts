@@ -22,6 +22,9 @@ export class Task extends BaseEntity {
   @Column()
   status: TaskStatus;
 
+  @Column({ nullable: true }) 
+  due_date: Date;
+
   @ManyToOne(
     type => User,
     user => user.tasks,

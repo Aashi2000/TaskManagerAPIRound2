@@ -12,4 +12,11 @@ export class GetTasksFilterDto {
   @IsOptional()
   @IsNotEmpty()
   search: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNotEmpty()
+  due_date: Date;
+
+
 }

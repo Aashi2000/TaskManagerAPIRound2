@@ -8,4 +8,8 @@ export class CreateTaskDTO {
   @ApiProperty()
   @IsNotEmpty()
   desc: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  due_date: Date;
 }

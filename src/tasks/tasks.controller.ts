@@ -30,6 +30,7 @@ import {
   ApiUnauthorizedResponse,
   ApiOkResponse,
 } from '@nestjs/swagger';
+import { Duplex } from 'stream';
 
 @Controller('tasks')
 @UseGuards(AuthGuard())
@@ -61,8 +62,9 @@ export class TasksController {
     @Param('id', ParseIntPipe) id: number,
     @GetUser()
     user: User,
+    due_date:Date
   ): Promise<Task> {
-    return this.tasksService.getTaskById(id, user);
+    return this.tasksService.getTaskById(id, user,due_date);
   }
 
   @Delete('/:id')
@@ -97,10 +99,12 @@ export class TasksController {
   updateTaskStatus(
     @Param('id', ParseIntPipe) id: number,
     @Body('status', TaskStatusValidationPipe)
+    @Body('due_date') due_date: Date,
     status: TaskStatus,
     @GetUser()
     user: User,
   ): Promise<Task> {
-    return this.tasksService.updateTaskStatus(id, status, user);
+    return this.tasksService.updateTaskStatus(id, status,due_date,user);
   }
 }
+

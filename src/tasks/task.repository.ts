@@ -10,12 +10,13 @@ import { Logger, InternalServerErrorException } from '@nestjs/common';
 export class TaskRepository extends Repository<Task> {
   private logger = new Logger('TaskRepository');
   async createTask(createTaskDTO: CreateTaskDTO, user: User): Promise<Task> {
-    const { title, desc } = createTaskDTO;
+    const { title, desc,due_date } = createTaskDTO;
     const task = new Task();
     task.title = title;
     task.desc = desc;
     task.status = TaskStatus.OPEN;
     task.user = user;
+    task.due_date = due_date;
 
     try {
       await task.save();
